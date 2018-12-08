@@ -16,7 +16,7 @@ flag = 0;
 id=0;
 filename='filename';
 dict = {
-            'item1': 1
+            
 }
 #font = cv2.InitFont(cv2.cv.CV_FONT_HERSHEY_SIMPLEX, 5, 1, 0, 1, 1)
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -29,33 +29,41 @@ while True:
     for (x,y,w,h) in faces:
         roi_gray = gray[y:y + h, x:x + w]
         cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0),2);
-        id,conf=recognizer.predict(roi_gray)
+        id,conf=recognizer.predict(gray[y:y+h,x:x+w])
+        #id,conf=recognizer.predict(roi_gray)
         if(conf < 50):
-         if(id==1):
-            id='Samarth'
+         if(id==2):
+            id='rajendra'
             if((str(id)) not in dict):
                 filename=xlwrite.output('attendance','class1',1,id,'yes');
                 dict[str(id)]=str(id);
+        
                 
-         elif(id==2):
-            id = 'Rohan'
+         elif(id==1):
+            id = 'manu'
             if ((str(id)) not in dict):
                 filename =xlwrite.output('attendance', 'class1', 2, id, 'yes');
                 dict[str(id)] = str(id);
 
          elif(id==3):
-            id = 'Raveen'
+            id = 'Neelam'
             if ((str(id)) not in dict):
                 filename =xlwrite.output('attendance', 'class1', 3, id, 'yes');
                 dict[str(id)] = str(id);
 
          elif(id==4):
-            id = 'Sonu'
+            id = 'Saksham'
+            if ((str(id)) not in dict):
+                filename =xlwrite.output('attendance', 'class1', 4, id, 'yes');
+                dict[str(id)] = str(id);
+                
+         elif(id==5):
+            id = 'bunny'
             if ((str(id)) not in dict):
                 filename =xlwrite.output('attendance', 'class1', 4, id, 'yes');
                 dict[str(id)] = str(id);
 
-        else:
+         else:
              id = 'Unknown, can not recognize'
              flag=flag+1
              break

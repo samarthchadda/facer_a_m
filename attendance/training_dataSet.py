@@ -40,7 +40,7 @@ ids,faces=getImagesWithID(path)
 
 #to train the recognizer , we need face samples and corresponding levels
 recognizer.train(faces,ids)
-recognizer.save('recognizer/trainingData1.yml')
+recognizer.save('recognizer_trainingData.yml')
 cv2.destroyAllWindows()
 
   
